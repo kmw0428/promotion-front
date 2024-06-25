@@ -1,5 +1,6 @@
 # V 1.01
-npm install react-router-dom
+npm install react-router-dom <br />
+npm install axios
 
 # React + TypeScript + Vite
 
