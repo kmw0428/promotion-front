@@ -1,7 +1,7 @@
 # V 1.01
 npm install react-router-dom <br />
 npm install axios <br />
-게시판 추가
+게시판, 장소 ,게임, 유니티컨텐츠 추가
 
 # React + TypeScript + Vite
 
