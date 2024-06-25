@@ -44,8 +44,17 @@ export const getGameById = async (id: string) => {
     return response.data;
 };
 
-export const createGame = async (game: { name: string; description: string; history: string; rules: string; imageURL: string }) => {
+export const createGame = async (game: { name: string; description: string; history: string; rules: string; imageURL: string; unityContentId: string }) => {
     const response = await api.post('/games', game);
+    return response.data;
+};
+
+export const uploadGameImage = async (gameId: string, formData: FormData) => {
+    const response = await api.post(`/games/${gameId}/uploadImage`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
     return response.data;
 };
 
@@ -99,12 +108,12 @@ export const getUnityContentById = async (id: string) => {
     return response.data;
 };
 
-export const createUnityContent = async (unityContent: { gameId: string; name: string; description: string; url: string }) => {
+export const createUnityContent = async (unityContent: { name: string; description: string; url: string }) => {
     const response = await api.post('/unityContents', unityContent);
     return response.data;
 };
 
-export const updateUnityContent = async (id: string, unityContent: { gameId: string; name: string; description: string; url: string }) => {
+export const updateUnityContent = async (id: string, unityContent: { name: string; description: string; url: string }) => {
     const response = await api.put(`/unityContents/${id}`, unityContent);
     return response.data;
 };
@@ -124,8 +133,20 @@ export const getLocationById = async (id: string) => {
     return response.data;
 };
 
-export const createLocation = async (location: { name: string; description: string; imageURL: string }) => {
-    const response = await api.post('/locations', location);
+export const createLocation = async (location: { name: string; description: string }) => {
+    const response = await api.post('/locations', {
+        name: location.name,
+        description: location.description
+    });
+    return response.data;
+};
+
+export const uploadLocationImage = async (locationId: string, formData: FormData) => {
+    const response = await api.post(`/locations/${locationId}/uploadImage`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
     return response.data;
 };
 
