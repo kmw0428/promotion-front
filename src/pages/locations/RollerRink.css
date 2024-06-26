@@ -16,13 +16,16 @@
       -250px -100px 100px rgba(255, 0, 0, 1)
     ; 
   }
+
+  .special-page {
+    background-color: #000000;
+  }
   
   .roller-wrapper {
     display: flex;
     justify-content: center;
     margin: auto;
     width: 400px;
-    background-color: #000000;
   }
   
   .roller-block {

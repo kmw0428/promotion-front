@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './RollerRink.css';
 
 const RollerRink: React.FC = () => {
+    useEffect(() => {
+        document.body.classList.add('special-page');
+        return () => {
+            document.body.classList.remove('special-page');
+        };
+    }, []);
+
     return (
         <div className="roller-wrapper">
             <div className="roller-block">
