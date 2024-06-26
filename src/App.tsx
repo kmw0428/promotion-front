@@ -10,13 +10,14 @@ import GameList from "./pages/games/GameList";
 import CreateGame from "./pages/games/CreateGame";
 import UnityContentList from "./pages/games/UnityContentList";
 import CreateUnityContent from "./pages/games/CreateUnityContent";
+import RollerRink from "./pages/games/RollerRink";
 
 export default function App() {
   return (
     <>
       <div className="maincontent">
         <Routes>
-          <Route path="/" element={<Navigate to="/boardlist" replace />} />
+          <Route path="/" element={<Navigate to="/rollerrink" replace />} />
           <Route path="/boardlist" element={<BoardList />} />
           <Route path="/boards/:boardId/posts" element={<PostList />} />
           <Route path="/posts/:postId" element={<PostDetail />} />
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/games/create" element={<CreateGame />} />
           <Route path="/unitycontents" element={<UnityContentList />} />
           <Route path="/unitycontents/create" element={<CreateUnityContent />} />
+          <Route path="/rollerrink" element={<RollerRink />} />
           <Route path="*" element={<h1>404: Page Not Found</h1>} />
         </Routes>
       </div>
