@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import MainPage from "./pages/MainPage";
 import BoardList from "./pages/posts/BoardList";
 import PostList from "./pages/posts/PostList";
 import PostDetail from "./pages/posts/PostDetail";
@@ -10,7 +11,7 @@ import GameList from "./pages/games/GameList";
 import CreateGame from "./pages/games/CreateGame";
 import UnityContentList from "./pages/games/UnityContentList";
 import CreateUnityContent from "./pages/games/CreateUnityContent";
-import RollerRink from "./pages/games/RollerRink";
+import RollerRink from "./pages/locations/RollerRink";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <div className="maincontent">
         <Routes>
           <Route path="/" element={<Navigate to="/rollerrink" replace />} />
+          <Route path="/mainpage" element={<MainPage />} />
           <Route path="/boardlist" element={<BoardList />} />
           <Route path="/boards/:boardId/posts" element={<PostList />} />
           <Route path="/posts/:postId" element={<PostDetail />} />
