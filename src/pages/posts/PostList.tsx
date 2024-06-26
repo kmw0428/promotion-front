@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getPostsByBoardId, getBoardById } from '../../services/api';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { getPostsByBoardId, getBoardById } from "../../services/api";
+import "./PostList.css"; // CSS 파일을 import 합니다.
 
 const PostList: React.FC = () => {
   const { boardId } = useParams<{ boardId: string }>();
-  const [posts, setPosts] = useState<{ id: string; title: string; content: string; createDate: string }[]>([]);
-  const [boardName, setBoardName] = useState<string>('');
+  const [posts, setPosts] = useState<
+    { id: string; title: string; content: string; createDate: string }[]
+  >([]);
+  const [boardName, setBoardName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const PostList: React.FC = () => {
           setBoardName(boardData.name);
         }
       } catch (error) {
-        console.error('Failed to fetch posts or board:', error);
+        console.error("Failed to fetch posts or board:", error);
       } finally {
         setLoading(false);
       }
@@ -35,18 +37,34 @@ const PostList: React.FC = () => {
   }
 
   return (
-    <div>
-      <h1>{boardName}</h1>
-      <Link to={`/boards/${boardId}/create-post`}>Create New Post</Link>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link to={`/posts/${post.id}`}>{post.title}</Link>
-            <p>{post.content}</p>
-            <p>{new Date(post.createDate).toLocaleString()}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="post-list-container">
+      <img
+        src="/mnt/data/무제-1-01.png"
+        alt="Background"
+        className="background-image"
+      />
+      <div className="content-container">
+        <h1>{boardName}</h1>
+        <Link
+          to={`/boards/${boardId}/create-post`}
+          className="create-post-link"
+        >
+          Create New Post
+        </Link>
+        <ul className="posts-list">
+          {posts.map((post) => (
+            <li key={post.id} className="post-item">
+              <Link to={`/posts/${post.id}`} className="post-title">
+                {post.title}
+              </Link>
+              <p className="post-content">{post.content}</p>
+              <p className="post-date">
+                {new Date(post.createDate).toLocaleString()}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
