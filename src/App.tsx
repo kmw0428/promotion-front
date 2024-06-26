@@ -12,6 +12,7 @@ import CreateGame from "./pages/games/CreateGame";
 import UnityContentList from "./pages/games/UnityContentList";
 import CreateUnityContent from "./pages/games/CreateUnityContent";
 import RollerRink from "./pages/locations/RollerRink";
+import School from "./pages/locations/School";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/unitycontents" element={<UnityContentList />} />
           <Route path="/unitycontents/create" element={<CreateUnityContent />} />
           <Route path="/rollerrink" element={<RollerRink />} />
+          <Route path="/school" element={<School />} />
           <Route path="*" element={<h1>404: Page Not Found</h1>} />
         </Routes>
       </div>
