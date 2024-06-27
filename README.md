@@ -1,9 +1,10 @@
-## V 1.01
+## V 1.03
+npm install --save openai <br />
 
+## V 1.02
 장소 (롤러장) 추가
 
 # V 1.01
-
 npm install react-router-dom <br />
 npm install axios <br />
 게시판, 장소 ,게임, 유니티컨텐츠 추가

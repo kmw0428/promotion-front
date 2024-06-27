@@ -8,6 +8,12 @@ const api = axios.create({
     },
 });
 
+// Chatbot 엔터티에 대한 메서드
+export const askChatbot = async (message: string) => {
+    const response = await api.post('/chatbot', { message });
+    return response.data;
+}
+
 // Board 엔터티에 대한 CRUD 메서드
 export const getBoards = async () => {
     const response = await api.get('/boards');

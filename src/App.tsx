@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import ChatBotIcon from "../public/chatbot.png";
+import ChatBot from "./pages/ChatBot";
 import MainPage from "./pages/MainPage";
 import BoardList from "./pages/posts/BoardList";
 import PostList from "./pages/posts/PostList";
@@ -15,9 +18,19 @@ import RollerRink from "./pages/locations/RollerRink";
 import School from "./pages/locations/School";
 
 export default function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const handlechatbot = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+  
   return (
     <>
       <div className="maincontent">
+        <div className="chatbot" onClick={handlechatbot}>
+          <img src={ChatBotIcon} className="chatbotimg" alt="ChatBot Icon" />
+        </div>
+        {isChatOpen && <ChatBot />}
         <Routes>
           <Route path="/" element={<Navigate to="/rollerrink" replace />} />
           <Route path="/mainpage" element={<MainPage />} />
